@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagunduro Naomi | Developer Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        :root {
+            --gold: #4737d4;
+            --dark: #080808;
+            --gray: #aaa;
+            --card: #141414;
+        }
+
+        /* NAVBAR */
+
+        header {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            background: rgba(8,8,8,0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 10% 60px;
+            background:
+                radial-gradient(circle at 80% 40%, #332810 0%, transparent 35%),
+                #080808;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero small {
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 1.1;
+            margin: 25px 0;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--gold);
+            color: #080808;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .outline-btn {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            margin-left: 12px;
+        }
+
+        .outline-btn:hover {
+            background: var(--gold);
+            color: black;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        .section-title h2 span {
+            color: var(--gold);
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #101010;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-box {
+            min-height: 300px;
+            background: linear-gradient(145deg, #29200e, #111);
+            border: 1px solid #4a3b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            color: var(--gold);
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            padding: 30px;
+            border: 1px solid #252525;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: #101010;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            padding: 35px;
+            background: #181818;
+            border: 1px solid #292929;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .project-card small {
+            color: var(--gold);
+        }
+
+        .project-card h3 {
+            margin: 15px 0;
+            font-size: 23px;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* CONTACT */
+
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-content p {
+            color: var(--gray);
+            margin: 20px 0 30px;
+        }
+
+        .contact-content h2 {
+            font-size: 42px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #222;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 12px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 170px;
+            }
+
+            section {
+                padding: 75px 7%;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .outline-btn {
+                margin: 15px 0 0;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">DN.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <small>WELCOME TO MY PORTFOLIO</small>
+
+            <h1>
+                Hi, I'm <span>Dagunduro</span><br>
+                Naomi.
+            </h1>
+
+            <p>
+                A passionate student and aspiring software developer
+                exploring the world of technology, creativity and
+                innovation through code.
+            </p>
+
+            <a href="#projects" class="btn">Explore My Work</a>
+            <a href="#contact" class="btn outline-btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <div class="section-title">
+            <small>GET TO KNOW ME</small>
+            <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-box">
+                DN.
+            </div>
+
+            <div class="about-text">
+                <h3>I'm Dagunduro Naomi</h3>
+
+                <p>
+                    I am a student with a strong interest in
+                    programming and web development. I enjoy
+                    learning how technology works and building
+                    creative digital experiences.
+                </p>
+
+                <p>
+                    I am currently developing my skills in HTML,
+                    CSS, C, Java, JavaScript and Python. My goal
+                    is to become a skilled software developer
+                    and create solutions that make a difference.
+                </p>
+
+                <a href="#contact" class="btn">Let's Connect</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+
+        <div class="section-title">
+            <small>WHAT I AM LEARNING</small>
+            <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Building the structure of modern websites.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Creating beautiful and responsive designs.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>C Language</h3>
+                <p>Learning programming logic and problem solving.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Java</h3>
+                <p>Exploring object-oriented programming.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Learning to make websites interactive.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Developing programming and automation skills.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+
+        <div class="section-title">
+            <small>MY RECENT WORK</small>
+            <h2>Featured <span>Projects</span></h2>
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <small>01 / HTML & CSS</small>
+                <h3>Student Registration Form</h3>
+                <p>
+                    A simple student registration interface
+                    designed using HTML and CSS.
+                </p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <small>02 / C PROGRAMMING</small>
+                <h3>Bank Management System</h3>
+                <p>
+                    A beginner C programming project featuring
+                    deposits, withdrawals and balance enquiries.
+                </p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <small>03 / HTML</small>
+                <h3>Personal Details Form</h3>
+                <p>
+                    A personal information form created
+                    using HTML form elements.
+                </p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <small>04 / PROGRAMMING</small>
+                <h3>Student Grading System</h3>
+                <p>
+                    A C program that accepts student scores
+                    and determines their grades.
+                </p>
+                <a href="#">View Project →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+
+        <div class="contact-content">
+            <div class="section-title">
+                <small>GET IN TOUCH</small>
+                <h2>Let's Build <span>Something</span></h2>
+            </div>
+
+            <p>
+                I am always interested in learning, connecting
+                with other developers and exploring new
+                opportunities in technology.
+            </p>
+
+            <a href="mailto:your-email@example.com" class="btn">
+                Send Me an Email
+            </a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <span>Dagunduro Naomi.</span>
+            All Rights Reserved.
+        </p>
+        <p>Designed with passion and creativity.</p>
+    </footer>
+
+</body>
+</html>
